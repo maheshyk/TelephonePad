@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="1" preserve-order="true" name="Sanity Tests">
+        <classes>
+            <class name="apptests.SanityTests">
+            </class>
+        </classes>
+    </test>
+    <test name="Negative Tests">
+        <classes>
+            <class name="apptests.NegativeTests">
+            </class>
+        </classes>
+    </test>
+    <test name="Performance Tests" enabled="false">
+        <classes>
+            <class name="apptests.PerfTest">
+            </class>
+        </classes>
+    </test>
+    <test name="User Tests">
+        <classes>
+            <class name="apptests.UsertestCases">
+            </class>
+        </classes>
+    </test>
+
+</suite>
