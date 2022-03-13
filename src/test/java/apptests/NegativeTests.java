@@ -4,6 +4,7 @@ import app.TelephoneDialPad;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 import tools.ExcelDataReader;
 
 import java.io.File;
@@ -13,12 +14,22 @@ public class NegativeTests {
 
     @Test(testName = "Invalid format first test -#1")
     public void invalidFormattest1() {
-        Assert.assertThrows(() -> TelephoneDialPad.retrieveCombinations("#1"));
+        try {
+            TelephoneDialPad.retrieveCombinations("#1");
+        } catch (Exception ex) {
+            Assert.fail("Exception was thrown for invalid format!");
+        }
     }
 
     @Test(testName = "Invalid format second test -4#")
     public void invalidFormattest2() {
-        Assert.assertThrows(() -> TelephoneDialPad.retrieveCombinations("4#"));
+
+
+        try {
+            TelephoneDialPad.retrieveCombinations("4#");
+        } catch (Exception ex) {
+            Assert.fail("Exception was thrown for invalid format!");
+        }
     }
 
     @Test(dataProvider = "negativetestdatasupplier",testName = "Negative scenarios")
