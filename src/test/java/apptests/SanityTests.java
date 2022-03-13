@@ -13,29 +13,26 @@ import java.util.LinkedList;
 
 public class SanityTests {
     @Test(dataProvider = "sanitydatasupplier")
-    public void Test1(String input,String expresult) {
+    public void sanityTest(String input, String expresult) {
 
-        String[] expectedvals=expresult.split("\\|");
+        String[] expectedvals = expresult.split("\\|");
         LinkedList<String> expectedListvals
-                = new LinkedList<String>();
+                = new LinkedList<>();
 
-        Collections.addAll(expectedListvals,expectedvals);
+        Collections.addAll(expectedListvals, expectedvals);
 
         Assert.assertEquals(expectedListvals, TelephoneDialPad.retrieveCombinations(input));
-//        System.out.println("vals:"+input+":"+expresult);
     }
+
     @DataProvider
     public Object[][] sanitydatasupplier() throws IOException {
         File filename = new File("src/test/resources/TestScenarioData.xlsx");
-        System.out.println("file " + filename.exists());
-        String[][] sanitydata=ExcelDataReader.getExceldata(filename,"SanityData");
-        return sanitydata;
+        if (filename.exists())
+        {
+            return ExcelDataReader.getExceldata(filename, "SanityTestData");
+        }
+        return null;
 
     }
-    @Test
-    void Test2() {
-//        assertEquals("1",TelephoneDialPad.retrieveCombinations("1"));
-//        assertArrayEquals(new String[]{"1"},TelephoneDialPad.retrieveCombinations("1"));
-        Assert.assertTrue(TelephoneDialPad.retrieveCombinations("1").equals(new LinkedList<String>(Collections.singleton("1"))));
-    }
+
 }

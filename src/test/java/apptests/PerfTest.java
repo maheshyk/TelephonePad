@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class PerfTest {
     @Test(timeOut = 5000)
-    public void perftest1()
+    public void performanceTest()
     {
         String expectedVal="Pneumonoultramicroscopicsilicovolcanoconiosis";
         LinkedList<String> testval= TelephoneDialPad.retrieveCombinations("763866668587264276736742745426805226626646747");
